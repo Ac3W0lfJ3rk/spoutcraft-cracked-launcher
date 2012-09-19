@@ -223,24 +223,7 @@ public class Utils {
 
 	public static String[] doLogin(String user, String pass, JProgressBar progress) throws BadLoginException, MCNetworkException, OutdatedMCLauncherException, UnsupportedEncodingException, MinecraftUserNotPremiumException, PermissionDeniedException {
 		String parameters = "user=" + URLEncoder.encode(user, "UTF-8") + "&password=" + URLEncoder.encode(pass, "UTF-8") + "&version=" + 13;
-		String result = executePost("https://login.minecraft.net/", parameters, progress);
-		if (result == null) {
-			throw new MCNetworkException();
-		}
-		if (!result.contains(":")) {
-			if (result.trim().contains("Bad login")) {
-				throw new BadLoginException();
-			} else if (result.trim().contains("User not premium")) {
-				throw new MinecraftUserNotPremiumException();
-			} else if (result.trim().contains("Old version")) {
-				throw new OutdatedMCLauncherException();
-			} else if (result.trim().contains("Account migrated, use e-mail as username.")) {
-				throw new AccountMigratedException();
-			} else {
-				System.err.print("Unknown login result: " + result);
-			}
-			throw new MCNetworkException();
-		}
+		String result = "1343825972000:deprecated:" + user + ":7ae9007b9909de05ea58e94199a33b30c310c69c";
 		return result.split(":");
 	}
 
