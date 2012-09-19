@@ -395,15 +395,8 @@ public class LegacyLoginFrame extends LoginFrame implements ActionListener, KeyL
 		offlinePane.add(offlineMode);
 		offlinePane.add(offlineMessage);
 		offlinePane.setVisible(false);
+		
 		contentPane.add(offlinePane);
-
-		int buildNumber = Settings.getLauncherBuild();
-		JLabel build = new JLabel("Launcher Build: " + (buildNumber == -1 ? "Custom" : "b" + buildNumber));
-		build.setFont(arial11);
-		build.setOpaque(false);
-		build.setBounds(3, 460, 125, 12);
-
-		contentPane.add(build);
 		contentPane.add(scrollPane);
 		contentPane.add(trans2);
 		contentPane.add(login);

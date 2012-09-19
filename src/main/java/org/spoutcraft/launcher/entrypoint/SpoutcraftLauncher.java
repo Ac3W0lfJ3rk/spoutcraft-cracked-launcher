@@ -87,11 +87,6 @@ public class SpoutcraftLauncher {
 		StartupParameters params = setupParameters(args);
 		SpoutcraftLauncher.logger = setupLogger();
 
-		int launcherBuild = parseInt(getLauncherBuild(), -1);
-		logger.info("------------------------------------------");
-		logger.info("Spoutcraft Launcher is starting....");
-		logger.info("Launcher Build: " + launcherBuild);
-
 		params.logParameters(logger);
 
 		//Setup Directories
@@ -104,7 +99,6 @@ public class SpoutcraftLauncher {
 			throw new NullPointerException("The YAMLProcessor object was null for settings.");
 		}
 		Settings.setYAML(settings);
-		Settings.setLauncherBuild(launcherBuild);
 		Proxy proxy = new Proxy();
 		proxy.setHost(Settings.getProxyHost());
 		proxy.setPort(Settings.getProxyPort());
@@ -217,7 +211,7 @@ public class SpoutcraftLauncher {
 		File logs = new File(logDirectory, "spoutcraft_%D.log");
 		RotatingFileHandler fileHandler = new RotatingFileHandler(logs.getPath());
 
-		fileHandler.setFormatter(new DateOutputFormatter(new SimpleDateFormat("yyyy/MM/dd HH:mm:ss")));
+		fileHandler.setFormatter(new DateOutputFormatter(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss")));
 
 		for (Handler h : logger.getHandlers()) {
 			logger.removeHandler(h);
@@ -245,11 +239,6 @@ public class SpoutcraftLauncher {
 		params.setupProxy();
 
 		return params;
-	}
-
-	public static String getLauncherBuild() {
-		String build = "377";
-		return build;
 	}
 
 	private static YAMLProcessor setupSettings() {
@@ -355,7 +344,7 @@ class RotatingFileHandler extends StreamHandler {
 
 	public RotatingFileHandler(String logFile) {
 		this.logFile = logFile;
-		date = new SimpleDateFormat("yyyy-MM-dd");
+		date = new SimpleDateFormat("dd-MM-yyyy");
 		filename = calculateFilename();
 		try {
 			setOutputStream(new FileOutputStream(filename, true));

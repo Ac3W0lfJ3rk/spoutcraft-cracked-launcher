@@ -48,14 +48,6 @@ public class Settings {
 		return yaml;
 	}
 
-	public static synchronized int getLauncherBuild() {
-		return yaml.getInt("launcher.launcher.buildNumber", -1);
-	}
-
-	public static synchronized void setLauncherBuild(int build) {
-		yaml.setProperty("launcher.launcher.buildNumber", build);
-	}
-
 	public static synchronized Channel getLauncherChannel() {
 		return Channel.getType(yaml.getInt("launcher.launcher.type", 0));
 	}
