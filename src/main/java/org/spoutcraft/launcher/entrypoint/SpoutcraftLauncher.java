@@ -248,7 +248,7 @@ public class SpoutcraftLauncher {
 	}
 
 	public static String getLauncherBuild() {
-		String build = "372";
+		String build = "377";
 		return build;
 	}
 
