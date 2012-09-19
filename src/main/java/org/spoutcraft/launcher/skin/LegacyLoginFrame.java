@@ -437,38 +437,6 @@ public class LegacyLoginFrame extends LoginFrame implements ActionListener, KeyL
 		thread = new ForgetThread();
 		thread.start();
 		
-		if (Main.isOldLauncher()) {
-			showOutdatedWarning();
-		}
-	}
-	private void showOutdatedWarning() {
-	    JLabel label = new JLabel();
-	    label.setFont(arial12);
-	
-	    StringBuffer style = new StringBuffer("font-family:" + arial12.getFamily() + ";");
-	    style.append("font-weight:" + (arial12.isBold() ? "bold" : "normal") + ";");
-	    style.append("font-size:" + arial12.getSize() + "pt;");
-	
-	    JEditorPane ep = new JEditorPane("text/html", "<html><body style=\"" + style + "\">" 
-	            + "Please download our newest launcher from <a href=\"http://get.spout.org/\">http://get.spout.org</a>"
-	            + "<br/>This launcher will continue to work for only a short time longer.</body></html>");
-	
-	    ep.addHyperlinkListener(new HyperlinkListener() {
-	        public void hyperlinkUpdate(HyperlinkEvent e) {
-	            if (e.getEventType().equals(HyperlinkEvent.EventType.ACTIVATED))
-					try {
-						Desktop.getDesktop().browse(e.getURL().toURI());
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					} catch (URISyntaxException e1) {
-						e1.printStackTrace();
-					}
-	        }
-	    });
-	    ep.setEditable(false);
-	    ep.setBackground(label.getBackground());
-
-	    JOptionPane.showMessageDialog(this, ep);
 	}
 
 	@SuppressWarnings("restriction")
