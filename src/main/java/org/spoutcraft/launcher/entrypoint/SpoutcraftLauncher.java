@@ -136,8 +136,6 @@ public class SpoutcraftLauncher {
 			return;
 		}
 		
-		setLookAndFeel();
-		
 		Runtime.getRuntime().addShutdownHook(new ShutdownThread());
 		Thread logThread = new LogFlushThread();
 		logThread.start();
@@ -179,19 +177,6 @@ public class SpoutcraftLauncher {
 		temp.delete();
 		temp = new File(Utils.getWorkingDirectory(), "mc.patch");
 		temp.delete();
-	}
-
-	private static void setLookAndFeel() {
-		OperatingSystem os = OperatingSystem.getOS();
-		if (os.isMac()) {
-			System.setProperty("apple.laf.useScreenMenuBar", "true");
-			System.setProperty("com.apple.mrj.application.apple.menu.about.name", "Spoutcraft");
-		}
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (Exception e) {
-			logger.log(Level.WARNING, "Failed to setup look and feel", e);
-		}
 	}
 
 	private static int parseInt(String s, int def) {
