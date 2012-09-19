@@ -93,7 +93,7 @@ public class OptionsMenu extends JDialog implements ActionListener{
 		setTitle("Launcher Options");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(spoutcraftIcon));
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
 		populateMemory(memory);
 
