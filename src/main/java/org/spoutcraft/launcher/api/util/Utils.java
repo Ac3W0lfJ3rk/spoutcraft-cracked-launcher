@@ -38,7 +38,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.SocketException;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -54,11 +53,6 @@ import javax.swing.JProgressBar;
 
 import org.spoutcraft.launcher.StartupParameters;
 import org.spoutcraft.launcher.api.skin.exceptions.PermissionDeniedException;
-import org.spoutcraft.launcher.exceptions.AccountMigratedException;
-import org.spoutcraft.launcher.exceptions.BadLoginException;
-import org.spoutcraft.launcher.exceptions.MCNetworkException;
-import org.spoutcraft.launcher.exceptions.MinecraftUserNotPremiumException;
-import org.spoutcraft.launcher.exceptions.OutdatedMCLauncherException;
 
 public class Utils {
 	private static File workDir = null;
@@ -221,8 +215,7 @@ public class Utils {
 		return count;
 	}
 
-	public static String[] doLogin(String user, String pass, JProgressBar progress) throws BadLoginException, MCNetworkException, OutdatedMCLauncherException, UnsupportedEncodingException, MinecraftUserNotPremiumException, PermissionDeniedException {
-		String parameters = "user=" + URLEncoder.encode(user, "UTF-8") + "&password=" + URLEncoder.encode(pass, "UTF-8") + "&version=" + 13;
+	public static String[] doLogin(String user, String pass, JProgressBar progress) {
 		String result = "1343825972000:deprecated:" + user + ":7ae9007b9909de05ea58e94199a33b30c310c69c";
 		return result.split(":");
 	}

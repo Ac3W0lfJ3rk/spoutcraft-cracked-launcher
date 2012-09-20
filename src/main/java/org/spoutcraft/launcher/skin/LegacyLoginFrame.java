@@ -619,36 +619,10 @@ public class LegacyLoginFrame extends LoginFrame implements ActionListener, KeyL
 	@Override
 	public void onEvent(Event event) {
 		switch (event) {
-			case BAD_LOGIN:
-				JOptionPane.showMessageDialog(getParent(), "Incorrect username/password combination");
-				enableForm();
-				break;
-			case ACCOUNT_MIGRATED:
-				JOptionPane.showMessageDialog(getParent(), "Please use your email address instead of your username.", "Account Migrated!", JOptionPane.WARNING_MESSAGE);
-				removeAccount(usernameField.getSelectedItem().toString());
-				enableForm();
-				break;
-			case USER_NOT_PREMIUM:
-				JOptionPane.showMessageDialog(getParent(), "You purchase a Minecraft account to play");
-				enableForm();
-				break;
-			case MINECRAFT_NETWORK_DOWN:
-				if (!canPlayOffline()) {
-					JOptionPane.showMessageDialog(getParent(), "Unable to authenticate account with minecraft.net");
-				} else {
-					int result = JOptionPane.showConfirmDialog(getParent(), "Would you like to run in offline mode?", "Unable to connect to minecraft.net", JOptionPane.YES_NO_OPTION);
-					if (result == JOptionPane.YES_OPTION) {
-						Launcher.getGameLauncher().runGame(Launcher.getGameUpdater().getMinecraftUser(), "", "");
-					} else {
-						enableForm();
-					}
-				}
-				break;
-
-			case PERMISSION_DENIED:
-				JOptionPane.showMessageDialog(getParent(), "Ensure Spoutcraft is whitelisted with any antivirus applications.", "Permission Denied!", JOptionPane.WARNING_MESSAGE);
-				enableForm();
-				break;
+		case PERMISSION_DENIED:
+			JOptionPane.showMessageDialog(getParent(), "Ensure Spoutcraft is whitelisted with any antivirus applications.", "Permission Denied!", JOptionPane.WARNING_MESSAGE);
+			enableForm();
+			break;
 		case GAME_LAUNCH:
 			thread.interrupt();
 			break;

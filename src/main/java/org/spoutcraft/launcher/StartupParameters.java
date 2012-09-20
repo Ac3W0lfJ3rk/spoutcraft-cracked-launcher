@@ -152,9 +152,6 @@ public final class StartupParameters {
 			} catch (IOException e1) {
 				pathToJar = jar.getAbsolutePath();
 			}
-			try {
-				pathToJar = URLDecoder.decode(pathToJar, "UTF-8");
-			} catch (java.io.UnsupportedEncodingException ignore) { }
 			
 			final int memory = Memory.getMemoryFromId(Settings.getMemory()).getMemoryMB();
 			log.info("Attempting relaunch with " + memory + " mb of RAM");
