@@ -1,10 +1,10 @@
 /*
- * This file is part of Spoutcraft Launcher.
+ * This file is part of Spoutcraft.
  *
  * Copyright (c) 2011-2012, SpoutDev <http://www.spout.org/>
- * Spoutcraft Launcher is licensed under the SpoutDev License Version 1.
+ * Spoutcraft is licensed under the SpoutDev License Version 1.
  *
- * Spoutcraft Launcher is free software: you can redistribute it and/or modify
+ * Spoutcraft is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
@@ -13,7 +13,7 @@
  * software, incorporating those changes, under the terms of the MIT license,
  * as described in the SpoutDev License Version 1.
  *
- * Spoutcraft Launcher is distributed in the hope that it will be useful,
+ * Spoutcraft is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
@@ -24,7 +24,7 @@
  * License and see <http://www.spout.org/SpoutDevLicenseV1.txt> for the full license,
  * including the MIT license.
  */
-package org.spoutcraft.launcher.api.util;
+package org.spoutcraft.launcher.util;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -52,7 +52,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.swing.JProgressBar;
 
 import org.spoutcraft.launcher.StartupParameters;
-import org.spoutcraft.launcher.api.skin.exceptions.PermissionDeniedException;
+import org.spoutcraft.launcher.exceptions.PermissionDeniedException;
 
 public class Utils {
 	private static File workDir = null;
